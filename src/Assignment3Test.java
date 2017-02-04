@@ -10,7 +10,7 @@ public class Assignment3Test {
 		String c = "aaabbccccaa";
 		String dc = "3a2b4c2a";
 		int prime = 18;
-		int[] d = { 1, 2, 8 };
+		int[] d = { 1, 2, 9 };
 		String s1 = "pineapple";
 		String s2 = "neapplepi";
 		String s3 = "apple";

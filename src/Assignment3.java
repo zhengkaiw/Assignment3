@@ -30,25 +30,45 @@ public class Assignment3 {
 	public int[] plusOne(int[] digits) {
 		// write your code here
 
-		int l = digits.length;
 		int in = 0;
 		int c = 0;
+		int cc = 0;
+		int[] op;
 
-		for (int i = l; i > 0; i--) {
+		for (int i = 0; i < digits.length; i++) { 								// Corner case. eg:999, 99
+			if (digits[i] != 9) {
+				cc++;
+			}
+		}
+
+		for (int i = digits.length; i > 0; i--) {
+
 			in += (digits[i - 1] * Math.pow(10, c));
+
 			c++;
+
 		}
 		c = 0;
 		in += 1;
 
-		int[] op = new int[(int) Math.ceil(Math.log10(in))];
-
-		for (int i = op.length; i > 0; i--) {
-			int ln = (int) in / ((int) Math.pow(10, (i - 1)));
-			op[c] = ln;
-			c++;
-			in -= ln * ((int) Math.pow(10, (i - 1)));
+		if (cc != 0) {
+			op = new int[(int) Math.ceil(Math.log10(in))];
+			for (int i = op.length; i > 0; i--) {
+				int ln = (int) in / ((int) Math.pow(10, (i - 1)));
+				op[c] = ln;
+				c++;
+				in -= ln * ((int) Math.pow(10, (i - 1)));
+			}
+		} else { 																// Corner Case
+			op = new int[(int) Math.ceil(Math.log10(in)) + 1];
+			for (int i = op.length; i > 0; i--) {
+				int ln = (int) in / ((int) Math.pow(10, (i - 1)));
+				op[c] = ln;
+				c++;
+				in -= ln * ((int) Math.pow(10, (i - 1)));
+			}
 		}
+
 		return op;
 	}
 
@@ -63,7 +83,7 @@ public class Assignment3 {
 		int count = 0;
 		int count2 = 0;
 
-		for (int i = 1; i <= n; i++) {
+		for (int i = 1; i <= n; i++) {				
 			if (isPrime(i)) {
 				count++;
 			}
@@ -84,7 +104,7 @@ public class Assignment3 {
 	public boolean isPrime(int n) {
 		// write your code here
 
-		if (n <= 1) {
+		if (n <= 1) { 												// Corner Case
 			return false;
 		} else {
 			for (int i = 2; i <= (int) Math.sqrt(n); i++) {
@@ -188,7 +208,10 @@ public class Assignment3 {
 		int count = 1;
 
 		for (int i = 1; i < c.length; i++) {
-			if (c[i] != c[i - 1]) {
+			if (c[i-1]<'a'||c[i-1]>'z'){				//Corner Case
+				return "Broken Code!";
+			}
+			else if (c[i] != c[i - 1]) {
 				if (i == 1) {
 					code = code + 1 + c[0];
 					count = 1;
@@ -210,7 +233,19 @@ public class Assignment3 {
 		char[] c = s.toCharArray();
 
 		String code = new String();
-
+		
+		for(int i = 0;i<c.length-1;i+=2){				//Corner Case
+			if (c.length<0||(c.length%2)!=0){
+				return "Broken Code!";
+			}
+			else if (c[i]<'0'||c[i]>'9'){
+				return "Broken Code!";
+			}
+			else if(c[i+1]<'a'||c[i+1]>'z'){
+				return "Broken Code!";
+			}
+		}
+		
 		for (int i = 1; i < c.length; i += 2) {
 			for (int j = 0; j < ((int) c[i - 1] - (int) ('0')); j++) {
 				code = code + c[i];
@@ -272,15 +307,17 @@ public class Assignment3 {
 	 * Write anything you think about this assignment here. Easy? Difficult? Too
 	 * many questions? Less fun? You could write any comments here
 	 */
-	
-	/* I think for most parts of my classmates who never learned about Java, this
-	 * assignment is pretty difficult for them. When I first learned Java, my task
-	 * is basic. The logic is simple so that it is easy for us to practice the new 
-	 * functions we just learned. So I suggest you can design some basic tasks and 
-	 * some questions from leetcode for extra credit. As for me, I think these assignments
-	 * are perfect. Although they are a little bit hard, they are all relative with 
-	 * the lecture we just took. I think if it's OK, you can give us some feedback about
-	 * our code. About logic, brevity. Let us know the problem of our codes. And this is
-	 * just the suggestion. If you are busy, just ignore this.
+
+	/*
+	 * I think for most parts of my classmates who never learned about Java,
+	 * this assignment is pretty difficult for them. When I first learned Java,
+	 * my task is basic. The logic is simple so that it is easy for us to
+	 * practice the new functions we just learned. So I suggest you can design
+	 * some basic tasks and some questions from leetcode for extra credit. As
+	 * for me, I think these assignments are perfect. Although they are a little
+	 * bit hard, they are all relative with the lecture we just took. I think if
+	 * it's OK, can you give us some feedbacks about our code? About logic,
+	 * brevity. Let us know the problem of our codes. And this is just the
+	 * suggestion. If you are busy, just ignore this.
 	 */
 }
