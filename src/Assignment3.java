@@ -1,3 +1,7 @@
+/*
+score: 9 + 1(extra credit)
+comments: good work! If you want to think on step further, consider if the extra credit 1 is required to return the result 2D array instead of just print it
+*/
 /**
  * Created by Rose on 1/27/17. Assignment for your lecture 3. Please finish all
  * the questions under 'Assignment'. Please try to think the extra credit
@@ -11,7 +15,7 @@ public class Assignment3 {
 	 * Given an array, reverse the elements within this array and print the
 	 * result eg, given{1,2,3,4}, print{4,3,2,1}
 	 */
-	public void reverseArray(int[] nums) {
+	public void reverseArray(int[] nums) {                 //correct
 		// write your code here
 
 		for (int i = nums.length; i > 0; i--) {
@@ -27,7 +31,7 @@ public class Assignment3 {
 	 * most significant digit is at the head of the array. eg, given {1,2,9},
 	 * return{1,3,0}.
 	 */
-	public int[] plusOne(int[] digits) {
+	public int[] plusOne(int[] digits) {                    //miss one corner case: if digits contains only one number: 0, your output is an empty array. But you should return {1};
 		// write your code here
 
 		int in = 0;
@@ -77,7 +81,7 @@ public class Assignment3 {
 	 * between 1 and that integer(inclusive). eg, input is 18, you should
 	 * return{2,3,5,7,11,13,17}
 	 */
-	public int[] generatePrimes(int n) {
+	public int[] generatePrimes(int n) {            //correct
 		// write your code here
 
 		int count = 0;
@@ -122,7 +126,7 @@ public class Assignment3 {
 	 * check if s2 is a rotation of s1, using only one call to isSubstring eg,
 	 * "pineapple" is a rotation of "neapplepi"
 	 */
-	public boolean isRotation(String s1, String s2) {
+	public boolean isRotation(String s1, String s2) {        //correct
 		// write your code here
 
 		if (s1.length() != s2.length()) {
@@ -162,7 +166,7 @@ public class Assignment3 {
 	 * the other hint: the comparison is case sensitive and whitespace is
 	 * significant
 	 */
-	public boolean isPermutation(String s1, String s2) {
+	public boolean isPermutation(String s1, String s2) {              //correct
 		// write your code here
 
 		char[] c1 = s1.toCharArray();
@@ -198,7 +202,7 @@ public class Assignment3 {
 	 * Assume the string to be encoded consists of letters of the alphabet, with
 	 * no digits, and the string to be decoded is a valid encoding.
 	 */
-	public static String encoding(String s) {
+	public static String encoding(String s) {           //miss one corner case: if s is empty, "code = code + count + c[c.length - 1];" will be the array overflow
 		// write your code here
 
 		char[] c = s.toCharArray();
@@ -260,7 +264,7 @@ public class Assignment3 {
 	 * degrees (clockwise). For example, given 1 2 3 , return 7 4 1 4 5,6 8 5 2
 	 * 7,8,9 9 6 3 tip: image could be a square or a rectangle.
 	 */
-	public void rotate(int[][] matrix) {
+	public void rotate(int[][] matrix) {                     //correct
 		// write your code here
 
 		int m = matrix.length;
@@ -280,7 +284,7 @@ public class Assignment3 {
 	 * parentheses is "()". For example, given "(())", return 2; given "(()))",
 	 * return -1.
 	 */
-	public int countValidParentheses(String s) {
+	public int countValidParentheses(String s) {      //wrong, if s is ")(", your output is 1, but you should return -1 because it is not valid.
 		// write your code here
 
 		int m = 0, n = 0;
@@ -320,4 +324,7 @@ public class Assignment3 {
 	 * brevity. Let us know the problem of our codes. And this is just the
 	 * suggestion. If you are busy, just ignore this.
 	 */
+	/*good suggestion! I tried to make the homework more easy for most of your classmates.
+	I can analyze your code or tell you which part of the code can be improved if you come to me at school. 
+	It's my pleasure to do that! */
 }
